@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from '../cooking-app1/screens/homeScreen';
+import HomeScreen from '../cooking-app/screens/homeScreen';
 
 const Tab = createBottomTabNavigator();
 
