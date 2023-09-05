@@ -1,8 +1,24 @@
 import { 
   StyleSheet, 
   View,
-  Text, 
+  Text,
+  FlatList,
 } from "react-native";
+
+import {
+  Card
+} from "react-native-elements";
+
+const Cards = ({recipe}) => (
+  <Card>
+    {console.log(recipe)}
+    {/* <Card.Title>{recipe.name}</Card.Title> */}
+    <Card.Title>Title</Card.Title>
+    <Card.Divider/>
+    {/* <Card.Image source={require(recipe.image)} /> */}
+    <Card.Image style={{height: 200, width: 200}} source={{uri: recipe}} />
+  </Card>
+);
 
 const RecipeModule = props => {
   return (
@@ -11,16 +27,12 @@ const RecipeModule = props => {
         <Text style={styles.headerTitle}>{props.headerTitle}</Text>
         <Text style={styles.seeAllOpt}>See all</Text>
       </View>
-      <View style={styles.cardCarousel}>
-        {/* {props.recipes.map((recipe) => {
-          return(
-            <Card>
-              <Card.Title>{recipe.name}</Card.Title>
-              <Card.Divider/>
-              <Card.Image source={require(recipe.image)} />
-            </Card>
-          );
-        })} */}
+      <View>
+        <FlatList
+          data={props.recipes}
+          renderItem={({item}) => <Cards recipe={item}/>}
+          horizontal
+        />
       </View>
     </>
   );
@@ -39,7 +51,6 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     textAlign: 'right'
   },
-  
 });
 
 export default RecipeModule;
