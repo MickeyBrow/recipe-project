@@ -6,17 +6,32 @@ import {
 } from "react-native";
 
 import {
-  Card
+  Card,
+  Icon,
 } from "react-native-elements";
 
 const Cards = ({recipe}) => (
   <Card>
-    {console.log(recipe)}
-    {/* <Card.Title>{recipe.name}</Card.Title> */}
-    <Card.Title>Title</Card.Title>
+    <Card.Image style={{height: 200, width: 200}} source={{uri: recipe.imageUri}} />
     <Card.Divider/>
-    {/* <Card.Image source={require(recipe.image)} /> */}
-    <Card.Image style={{height: 200, width: 200}} source={{uri: recipe}} />
+    <Card.Title>{recipe.name}</Card.Title>
+    <View style={styles.recipeDescriptionRow}>
+      {/* Here will be the rating and how many ingredients it needs */}
+      <Text style={styles.recipeReviews}>
+        <Icon
+          name="heart"
+          type="ionicon"
+        />
+        {recipe.likes}
+      </Text>
+      <Text style={styles.recipeIngredientCount}>
+        <Icon
+          name="cart"
+          type="ionicon"
+        />
+        {recipe.ingredientCount}
+      </Text>
+    </View>
   </Card>
 );
 
@@ -32,6 +47,7 @@ const RecipeModule = props => {
           data={props.recipes}
           renderItem={({item}) => <Cards recipe={item}/>}
           horizontal
+          showsHorizontalScrollIndicator={false}
         />
       </View>
     </>
@@ -50,6 +66,17 @@ const styles = StyleSheet.create({
     flex: 1,
     textDecorationLine: 'underline',
     textAlign: 'right'
+  },
+  recipeDescriptionRow: {
+    flexDirection:'row',
+  },
+  recipeReviews: {
+    flex: 1,
+    textAlign: 'center'
+  },
+  recipeType: {
+    flex: 1,
+    textAlign: 'center'
   },
 });
 
