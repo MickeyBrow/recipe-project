@@ -38,17 +38,19 @@ const Cards = ({recipe}) => (
 const RecipeModule = props => {
   return (
     <>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>{props.headerTitle}</Text>
-        <Text style={styles.seeAllOpt}>See all</Text>
-      </View>
-      <View>
-        <FlatList
-          data={props.recipes}
-          renderItem={({item}) => <Cards recipe={item}/>}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        />
+      <View style={styles.moduleContainer}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>{props.headerTitle}</Text>
+          <Text style={styles.seeAllOpt}>See all</Text>
+        </View>
+        <View>
+          <FlatList
+            data={props.recipes}
+            renderItem={({item}) => <Cards recipe={item}/>}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
       </View>
     </>
   );
@@ -77,6 +79,9 @@ const styles = StyleSheet.create({
   recipeType: {
     flex: 1,
     textAlign: 'center'
+  },
+  moduleContainer: {
+    marginVertical: 10,
   },
 });
 

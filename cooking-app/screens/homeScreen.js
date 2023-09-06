@@ -1,7 +1,9 @@
 import { 
   StyleSheet, 
   TextInput, 
-  View, 
+  View,
+  Text, 
+  FlatList,
   SafeAreaView,
 } from "react-native";
 
@@ -35,6 +37,15 @@ export default function HomeScreen({navigation}) {
     },
   ];
 
+  const data = {
+    "Picture Tab Ad": [],
+    "Popular Recipes": recipeSeed,
+    "Healthy Options": recipeSeed,
+    "Desserts": recipeSeed,
+    "Random Ad": [],
+    "Quick Meals": recipeSeed
+  };
+
   return (
     <SafeAreaView>
       <View style={styles.header}>
@@ -44,9 +55,19 @@ export default function HomeScreen({navigation}) {
         />
       </View>
       <View style={styles.body}>
-        <RecipeModule
-          headerTitle="Hot Recipes"
-          recipes = {recipeSeed}
+        <FlatList
+          data={Object.keys(data)}
+          renderItem={({item}) => {
+            switch(item){
+              case "Picture Tab Ad":
+                return; //Take an image of the fridge and return recipes that can be made with that
+              case "Random Ad":
+                return; //Ad for a random recipe.
+              default:
+                return <RecipeModule headerTitle={item} recipes={data[item]}/>;
+            }
+          }}
+          showsVerticalScrollIndicator={false}
         />
       </View>
     </SafeAreaView>
