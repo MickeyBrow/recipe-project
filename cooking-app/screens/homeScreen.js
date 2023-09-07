@@ -8,6 +8,8 @@ import {
 } from "react-native";
 
 import RecipeModule from "../../cooking-app/components/recipeModule";
+import PictureFunctionalityAd from "../components/pictureFunctionalityAd";
+import RandomRecipeAd from "../components/randomRecipeAd";
 
 export default function HomeScreen({navigation}) {
   const recipeSeed = [
@@ -60,9 +62,9 @@ export default function HomeScreen({navigation}) {
           renderItem={({item}) => {
             switch(item){
               case "Picture Tab Ad":
-                return; //Take an image of the fridge and return recipes that can be made with that
+                return <PictureFunctionalityAd/>; //Take an image of the fridge and return recipes that can be made with that
               case "Random Ad":
-                return; //Ad for a random recipe.
+                return <RandomRecipeAd/>; //Ad for a random recipe.
               default:
                 return <RecipeModule headerTitle={item} recipes={data[item]}/>;
             }
@@ -84,7 +86,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 5,
   },
-
   body: {
     margin: 12,
     flexDirection: 'column',

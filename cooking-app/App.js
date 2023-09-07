@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -12,6 +12,9 @@ export default function App() {
   return (
     <>
       <View style={styles.container}>
+        <StatusBar
+          barStyle="dark-content"
+        />
         <NavigationContainer style={styles.bottomNavBar}>
           <Tab.Navigator
             screenOptions={({ route }) => ({

@@ -45,6 +45,7 @@ const RecipeModule = props => {
         </View>
         <View>
           <FlatList
+            style={{marginVertical: 10}}
             data={props.recipes}
             renderItem={({item}) => <Cards recipe={item}/>}
             horizontal
@@ -81,7 +82,6 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   moduleContainer: {
-    marginVertical: 10,
   },
 });
 
