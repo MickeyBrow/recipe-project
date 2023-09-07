@@ -78,7 +78,7 @@ export default function HomeScreen({navigation}) {
 
 const styles = StyleSheet.create({
   header: {
-    margin: 12,
+    marginHorizontal: 12,
   },
   input: {
     height: 40,

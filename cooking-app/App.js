@@ -22,6 +22,9 @@ export default function App() {
                 let iconName;
 
                 switch(route.name) {
+                  case "Pluto":
+                    iconName = focused ? 'planet' : 'planet-outline' ;
+                    break;
                   case "Home":
                     iconName = focused ? 'ios-home' : 'ios-home-outline';
                     break;
@@ -40,6 +43,7 @@ export default function App() {
               headerShown: false,
             })}
           >
+            <Tab.Screen name="Pluto" component={() => {}} />
             <Tab.Screen name="Home" component={HomeScreen} />
             <Tab.Screen name="Random" component={() => {}} />
           </Tab.Navigator>

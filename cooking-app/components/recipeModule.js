@@ -60,6 +60,7 @@ const RecipeModule = props => {
 const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
+    marginTop: '3%',
   },
   headerTitle: {
     flex: 2,
