@@ -47,7 +47,7 @@ export default function HomeScreen({navigation}) {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{height: '95%'}}>
       <View style={styles.header}>
         <TextInput
           style={styles.input}

@@ -31,6 +31,7 @@ export default function App() {
                 // You can return any component that you like here!
                 return <Ionicons name={iconName} size={size} color={color} />;
               },
+              tabBarStyle: {height: 70, paddingVertical: 3},
               tabBarActiveTintColor: 'blue',
               tabBarInactiveTintColor: 'gray',
               headerShown: false,
