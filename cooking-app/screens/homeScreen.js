@@ -10,6 +10,7 @@ import {
 import RecipeModule from "../../cooking-app/components/recipeModule";
 import PictureFunctionalityAd from "../components/pictureFunctionalityAd";
 import RandomRecipeAd from "../components/randomRecipeAd";
+import IngredientSearchBar from "../components/ingredientSearchBar";
 
 export default function HomeScreen({navigation}) {
   const recipeSeed = [
@@ -51,10 +52,7 @@ export default function HomeScreen({navigation}) {
   return (
     <SafeAreaView style={{height: '95%'}}>
       <View style={styles.header}>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Ingredients"
-        />
+        <IngredientSearchBar/>
       </View>
       <View style={styles.body}>
         <FlatList
@@ -88,6 +86,7 @@ const styles = StyleSheet.create({
   },
   body: {
     margin: 12,
+    marginBottom: 0,
     flexDirection: 'column',
     justifyContent: 'space-between',
   },

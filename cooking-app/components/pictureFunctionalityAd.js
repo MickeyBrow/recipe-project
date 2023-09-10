@@ -16,9 +16,9 @@ const PictureFunctionalityAd = () => {
     <>
       <View style={styles.container}>
         <Text>Want to see what you can make right now?</Text>
-        <Text>Project Pluto</Text>
+        <Text>Project Saturn</Text>
         <Button
-          title="Project Pluto"
+          title="Project Saturn"
         />
       </View>
     </>
