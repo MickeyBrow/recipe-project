@@ -14,17 +14,21 @@ import {
   Icon,
 } from "react-native-elements";
 
-const TextBubble = ({content}) => (
-  <Pressable style={styles.bubblePressable}>
-    <Text style={styles.textBubble}>{content}</Text>
-  </Pressable>
-);
-
 const IngredientSearchBar = () => {
   const [currentSearch, setCurrent] = useState("");
   const [ingredientsList, setIngredientsList]= useState([]);
 
   const textInputRef = {};
+
+  const deleteTextBubble = (location) => {
+    setIngredientsList(ingredientsList.slice(0, location).concat(ingredientsList.slice(location + 1))); 
+  };
+  
+  const TextBubble = ({content, index}) => (
+    <Pressable style={styles.bubblePressable} onPress={() => deleteTextBubble(index)}>
+      <Text style={styles.textBubble}>{content}</Text>
+    </Pressable>
+  );
 
   return (
     <>
@@ -35,12 +39,14 @@ const IngredientSearchBar = () => {
           ref={input => { this.textInput = input }}
           onEndEditing={obj => {
             this.textInput.clear();
-            return setIngredientsList((oldArray) => [...oldArray, obj.nativeEvent.text]);
+            return setIngredientsList((oldArray) => [obj.nativeEvent.text, ...oldArray]);
           }}
         />
         <FlatList
           data={ingredientsList}
-          renderItem={({item}) => <TextBubble content={item}/>}
+          renderItem={(item) => {
+            return <TextBubble content={item.item} index={item.index}/>;
+        }}
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{marginTop: '3%'}}

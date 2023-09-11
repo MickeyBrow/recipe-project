@@ -28,7 +28,7 @@ const RandomRecipeAd = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: '5%',
+    marginVertical: '3%',
     borderRadius: 20,
     backgroundColor: 'yellow',
     alignItems: 'flex-start',
