@@ -4,7 +4,8 @@ import { StyleSheet, View, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from '../cooking-app/screens/homeScreen';
+import HomeScreen from './screens/homeScreen';
+import SaturnScreen from './screens/saturnScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +45,7 @@ export default function App() {
             })}
             initialRouteName='Home'
           >
-            <Tab.Screen name="Saturn" component={() => {}} />
+            <Tab.Screen name="Saturn" component={SaturnScreen} />
             <Tab.Screen name="Home" component={HomeScreen} />
             <Tab.Screen name="Random" component={() => {}} />
           </Tab.Navigator>
