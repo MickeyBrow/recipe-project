@@ -14,12 +14,28 @@ import {
 
 const Cards = ({recipe}) => (
   <View style={styles.card}>
+    <Text>{recipe.name}</Text>
     <View style={styles.topHalf}>
       <Image
-        style={{width: 200, height: 200, flexBasis: '50%'}}
+        style={{width: 200, height: 200, flexBasis: '70%'}}
         source={{uri: recipe.imageUri}}
       />
-      <Text style={{flex: 1, flexBasis: '50%'}}>{recipe.name}</Text>
+      <View style={{flexBasis: '30%', margin: 12}}>
+        <Text style={styles.recipeReviews}>
+          <Icon
+            name="heart"
+            type="ionicon"
+          />
+          {recipe.likes}
+        </Text>
+        <Text style={styles.recipeIngredientCount}>
+          <Icon
+            name="cart"
+            type="ionicon"
+          />
+          {recipe.ingredientCount}
+        </Text>
+      </View>
     </View>
     <View>
       <Text>Description Here Maybe</Text>
@@ -31,7 +47,7 @@ const AllRecipeFlatList = ({data, title}) => {
   return (
     <>
       <View style={styles.container}>
-        <Text>{title}</Text>
+        <Text style={{fontWeight: 'bold', marginBottom: 10}}>{title}</Text>
         <FlatList
           data={data}
           renderItem={({item}) => <Cards recipe={item}/>}
@@ -46,16 +62,15 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: '5%',
     borderRadius: 20,
-    backgroundColor: 'red',
     alignItems: 'flex-start',
     padding: 12
   },
   card: {
-    backgroundColor: 'green',
     marginBottom: 30,
+    backgroundColor: 'yellow'
   },
   topHalf: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   }
 });
 
