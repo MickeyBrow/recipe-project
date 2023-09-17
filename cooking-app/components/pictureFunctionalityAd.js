@@ -11,7 +11,7 @@ import {
   Icon,
 } from "react-native-elements";
 
-const PictureFunctionalityAd = () => {
+const PictureFunctionalityAd = ({navigation}) => {
   return (
     <>
       <View style={styles.container}>
@@ -19,6 +19,7 @@ const PictureFunctionalityAd = () => {
         <Text>Project Saturn</Text>
         <Button
           title="Project Saturn"
+          onPress={() => navigation.navigate('Saturn')}
         />
       </View>
     </>

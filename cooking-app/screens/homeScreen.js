@@ -60,9 +60,9 @@ export default function HomeScreen({navigation}) {
           renderItem={({item}) => {
             switch(item){
               case "Picture Tab Ad":
-                return <PictureFunctionalityAd/>; //Take an image of the fridge and return recipes that can be made with that
+                return <PictureFunctionalityAd navigation={navigation}/>; //Take an image of the fridge and return recipes that can be made with that
               case "Random Ad":
-                return <RandomRecipeAd/>; //Ad for a random recipe.
+                return <RandomRecipeAd navigation={navigation}/>; //Ad for a random recipe.
               default:
                 return <RecipeModule headerTitle={item} recipes={data[item]}/>;
             }

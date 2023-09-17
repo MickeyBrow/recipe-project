@@ -11,7 +11,7 @@ import {
   Icon,
 } from "react-native-elements";
 
-const RandomRecipeAd = () => {
+const RandomRecipeAd = ({navigation}) => {
   return (
     <>
       <View style={styles.container}>
@@ -20,6 +20,7 @@ const RandomRecipeAd = () => {
         <Text>*based on your preferences</Text>
         <Button
           title="Generate"
+          onPress={() => navigation.navigate('Random')}
         />
       </View>
     </>

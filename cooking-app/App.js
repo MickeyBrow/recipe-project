@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './screens/homeScreen';
 import SaturnScreen from './screens/saturnScreen';
+import RandomRecipeScreen from './screens/randomRecipeScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,7 +48,7 @@ export default function App() {
           >
             <Tab.Screen name="Saturn" component={SaturnScreen} />
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Random" component={() => {}} />
+            <Tab.Screen name="Random" component={RandomRecipeScreen} />
           </Tab.Navigator>
         </NavigationContainer>
       </View>
