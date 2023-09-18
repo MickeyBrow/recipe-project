@@ -41,7 +41,6 @@ const RecipeModule = props => {
       <View style={styles.moduleContainer}>
         <View style={styles.header}>
           <Text style={styles.headerTitle}>{props.headerTitle}</Text>
-          <Text style={styles.seeAllOpt}>See all</Text>
         </View>
         <View>
           <FlatList

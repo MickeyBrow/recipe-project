@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   card: {
     marginBottom: 30,
-    backgroundColor: 'yellow'
+    backgroundColor: 'yellow',
   },
   topHalf: {
     flexDirection: 'row',
