@@ -17,7 +17,6 @@ const RandomRecipeAd = ({navigation}) => {
       <View style={styles.container}>
         <Text>Don't know what to eat?</Text>
         <Text>Generate recipe</Text>
-        <Text>*based on your preferences</Text>
         <Button
           title="Generate"
           onPress={() => navigation.navigate('Random')}
