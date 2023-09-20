@@ -12,26 +12,9 @@ import {
 
 const Cards = ({recipe}) => (
   <Card>
-    <Card.Image style={{height: 200, width: 200}} source={{uri: recipe.imageUri}} />
+    <Card.Image style={{height: 200, width: 200}} source={{uri: recipe.image}} />
     <Card.Divider/>
-    <Card.Title>{recipe.name}</Card.Title>
-    <View style={styles.recipeDescriptionRow}>
-      {/* Here will be the rating and how many ingredients it needs */}
-      <Text style={styles.recipeReviews}>
-        <Icon
-          name="heart"
-          type="ionicon"
-        />
-        {recipe.likes}
-      </Text>
-      <Text style={styles.recipeIngredientCount}>
-        <Icon
-          name="cart"
-          type="ionicon"
-        />
-        {recipe.ingredientCount}
-      </Text>
-    </View>
+    <Card.Title>{recipe.title}</Card.Title>
   </Card>
 );
 

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { 
   StyleSheet, 
   TextInput, 
@@ -13,6 +14,16 @@ import RandomRecipeAd from "../components/randomRecipeAd";
 import IngredientSearchBar from "../components/ingredientSearchBar";
 
 export default function HomeScreen({navigation}) {
+
+  const [homePageData, setHomePageData] = useState();
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/test')
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error))
+  });
+
   const recipeSeed = [
     {
       name: "naruto",
@@ -49,6 +60,8 @@ export default function HomeScreen({navigation}) {
     "Quick Meals": recipeSeed
   };
 
+  if(!homePageData) return <Text>Loading...</Text>
+
   return (
     <SafeAreaView style={{height: '95%'}}>
       <View style={styles.header}>
@@ -56,7 +69,7 @@ export default function HomeScreen({navigation}) {
       </View>
       <View style={styles.body}>
         <FlatList
-          data={Object.keys(data)}
+          data={Object.keys(homePageData)}
           renderItem={({item}) => {
             switch(item){
               case "Picture Tab Ad":
@@ -64,7 +77,7 @@ export default function HomeScreen({navigation}) {
               case "Random Ad":
                 return <RandomRecipeAd navigation={navigation}/>; //Ad for a random recipe.
               default:
-                return <RecipeModule headerTitle={item} recipes={data[item]}/>;
+                return <RecipeModule headerTitle={item} recipes={homePageData[item]}/>;
             }
           }}
           showsVerticalScrollIndicator={false}

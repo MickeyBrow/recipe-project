@@ -23,9 +23,8 @@ def getHomePageData():
     "Picture Tab Ad": [],
     "Popular Recipes": ["popularity"],
     "Healthy Options": ["healthiness"],
-    "Desserts": ["sugar"],
     "Random Ad": [],
-    "Quick Meals": ["time"]
+    "Desserts": ["sugar"]
   }
 
   for opt in data:
