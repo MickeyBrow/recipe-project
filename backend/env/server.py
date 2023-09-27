@@ -32,3 +32,10 @@ def getHomePageData():
       data[opt] = getHomePageDataHelper(data[opt][0])
 
   return data
+
+@app.route('/randomPage', methods = ['GET'])
+def getRandomPageData():
+
+  response = requests.get('https://api.spoonacular.com/recipes/complexSearch', {"apiKey": apiKey})
+  data = response.json()["results"]
+  return data

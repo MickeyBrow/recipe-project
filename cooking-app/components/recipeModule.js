@@ -12,7 +12,7 @@ import {
 
 const Cards = ({recipe}) => (
   <Card>
-    <Card.Image style={{height: 200, width: 200}} source={{uri: recipe.image}} />
+    <Card.Image source={{uri: recipe.image}} resizeMode="center"/>
     <Card.Divider/>
     <Card.Title>{recipe.title}</Card.Title>
   </Card>

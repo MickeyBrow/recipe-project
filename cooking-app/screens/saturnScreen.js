@@ -8,6 +8,7 @@ import {
   Text, 
   FlatList,
   Button,
+  Image,
   SafeAreaView,
 } from "react-native";
 
@@ -38,7 +39,28 @@ export default function SaturnScreen({navigation}) {
 
   if (photo) {
     // Send the photo to the backend for image segmentation
-    return <Text>Picture Taken</Text>
+    let data = {
+      file: `data:image/jpg;base64,${photo.base64}`
+    };
+
+    fetch('http://127.0.0.1:5000/imageUpload', {
+      body: JSON.stringify(data),
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .catch(error => {
+      return <Text>Broken</Text>;
+    })
+
+    // After this line is the case that the image stuff works and I get back either the list of ingredients or the recipes
+    return (
+      <SafeAreaView style={{height: '100%'}}>
+        <Text>Working on it</Text>
+      </SafeAreaView>
+    )
   }
   else {
     return (

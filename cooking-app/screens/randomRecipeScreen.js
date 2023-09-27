@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   StyleSheet, 
   TextInput, 
@@ -13,6 +13,15 @@ import {
 import AllRecipeFlatList from "../components/allRecipeFL";
 
 export default function RandomRecipeScreen({navigation}) {
+  const [recipes, setRecipes] = useState();
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/randomPage')
+      .then(response => response.json())
+      .then(data => setRecipes(data))
+      .catch(error => console.log(error))
+  }, []);
+
   const recipeSeed = [
     {
       name: "naruto",
@@ -43,7 +52,7 @@ export default function RandomRecipeScreen({navigation}) {
   return (
     <SafeAreaView>
       <View style={styles.fullContainer}>
-        <AllRecipeFlatList data={recipeSeed} title="Random Recipe"/>
+        <AllRecipeFlatList data={recipes} title="Random Recipe"/>
       </View>
     </SafeAreaView>
   );

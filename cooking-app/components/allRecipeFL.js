@@ -14,28 +14,12 @@ import {
 
 const Cards = ({recipe}) => (
   <View style={styles.card}>
-    <Text>{recipe.name}</Text>
+    <Text>{recipe.title}</Text>
     <View style={styles.topHalf}>
       <Image
         style={{width: 200, height: 200, flexBasis: '70%'}}
-        source={{uri: recipe.imageUri}}
+        source={{uri: recipe.image}}
       />
-      <View style={{flexBasis: '30%', margin: 12}}>
-        <Text style={styles.recipeReviews}>
-          <Icon
-            name="heart"
-            type="ionicon"
-          />
-          {recipe.likes}
-        </Text>
-        <Text style={styles.recipeIngredientCount}>
-          <Icon
-            name="cart"
-            type="ionicon"
-          />
-          {recipe.ingredientCount}
-        </Text>
-      </View>
     </View>
     <View>
       <Text>Description Here Maybe</Text>
@@ -50,7 +34,10 @@ const AllRecipeFlatList = ({data, title}) => {
         <Text style={{fontWeight: 'bold', marginBottom: 10}}>{title}</Text>
         <FlatList
           data={data}
-          renderItem={({item}) => <Cards recipe={item}/>}
+          renderItem={({item}) => {
+            console.log(item);
+            return (<Cards recipe={item}/>);
+          }}
           showsVerticalScrollIndicator={false}
         />
       </View>
