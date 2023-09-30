@@ -14,14 +14,11 @@ import {
   Icon,
 } from "react-native-elements";
 
-const IngredientSearchBar = () => {
-  const [currentSearch, setCurrent] = useState("");
-  const [ingredientsList, setIngredientsList]= useState([]);
-
+const IngredientSearchBar = ({ingredientsList, removeIngredient}) => {
   const textInputRef = {};
 
   const deleteTextBubble = (location) => {
-    setIngredientsList(ingredientsList.slice(0, location).concat(ingredientsList.slice(location + 1))); 
+    removeIngredient(ingredientsList.slice(0, location).concat(ingredientsList.slice(location + 1))); 
   };
   
   const TextBubble = ({content, index}) => (
@@ -39,7 +36,7 @@ const IngredientSearchBar = () => {
           ref={input => { this.textInput = input }}
           onEndEditing={obj => {
             this.textInput.clear();
-            return setIngredientsList((oldArray) => [obj.nativeEvent.text, ...oldArray]);
+            return removeIngredient((oldArray) => [obj.nativeEvent.text, ...oldArray]);
           }}
         />
         <FlatList

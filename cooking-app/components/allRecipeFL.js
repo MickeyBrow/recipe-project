@@ -17,12 +17,9 @@ const Cards = ({recipe}) => (
     <Text>{recipe.title}</Text>
     <View style={styles.topHalf}>
       <Image
-        style={{width: 200, height: 200, flexBasis: '70%'}}
+        style={{width: 200, height: 200, flexBasis: '80%'}}
         source={{uri: recipe.image}}
       />
-    </View>
-    <View>
-      <Text>Description Here Maybe</Text>
     </View>
   </View>
 );
@@ -35,7 +32,6 @@ const AllRecipeFlatList = ({data, title}) => {
         <FlatList
           data={data}
           renderItem={({item}) => {
-            console.log(item);
             return (<Cards recipe={item}/>);
           }}
           showsVerticalScrollIndicator={false}
@@ -58,7 +54,7 @@ const styles = StyleSheet.create({
   },
   topHalf: {
     flexDirection: 'row',
-  }
+  },
 });
 
 export default AllRecipeFlatList;

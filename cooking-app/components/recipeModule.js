@@ -3,6 +3,7 @@ import {
   View,
   Text,
   FlatList,
+  Image,
 } from "react-native";
 
 import {
@@ -11,11 +12,17 @@ import {
 } from "react-native-elements";
 
 const Cards = ({recipe}) => (
-  <Card>
-    <Card.Image source={{uri: recipe.image}} resizeMode="center"/>
-    <Card.Divider/>
-    <Card.Title>{recipe.title}</Card.Title>
-  </Card>
+  <View style={styles.card}>
+    <View>
+      <Image
+        style={{width: 200, height: 200}}
+        source={{uri: recipe.image}}
+      />
+      <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+        <Text style={{backgroundColor: 'red'}}>{recipe.title}</Text>
+      </View>
+    </View>
+  </View>
 );
 
 const RecipeModule = props => {
@@ -48,23 +55,10 @@ const styles = StyleSheet.create({
     flex: 2,
     fontWeight: 'bold',
   },
-  seeAllOpt: {
-    flex: 1,
-    textDecorationLine: 'underline',
-    textAlign: 'right'
-  },
-  recipeDescriptionRow: {
-    flexDirection:'row',
-  },
-  recipeReviews: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  recipeType: {
-    flex: 1,
-    textAlign: 'center'
-  },
-  moduleContainer: {
+  card: {
+    marginBottom: 5,
+    backgroundColor: 'yellow',
+    paddingRight: 40,
   },
 });
 
