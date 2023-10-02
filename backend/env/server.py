@@ -46,3 +46,11 @@ def getIngredientSearchData():
   response = requests.get('https://api.spoonacular.com/recipes/findByIngredients', {"apiKey": apiKey, "ingredients": request_body["ingredients"]})
   data = response.json()
   return data
+
+@app.route('/imageUpload', methods = ['POST'])
+def getImageData():
+  request_body = request.json
+  print(request_body)
+  # response = requests.get('https://api.spoonacular.com/recipes/findByIngredients', {"apiKey": apiKey, "ingredients": request_body["ingredients"]})
+  # data = response.json()
+  return {}

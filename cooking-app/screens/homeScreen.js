@@ -42,7 +42,11 @@ export default function HomeScreen({navigation}) {
       .catch(error => console.log(error))
   }, [ingredientsList]);
 
-  if(!homePageData) return <Text>Loading...</Text>
+  if(!homePageData) return(
+    <SafeAreaView>
+      <Text>Loading...</Text>
+    </SafeAreaView>
+  );
 
   return (
     <SafeAreaView style={{height: '95%'}}>
