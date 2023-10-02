@@ -14,12 +14,15 @@ import {
 
 const Cards = ({recipe}) => (
   <View style={styles.card}>
-    <Text>{recipe.title}</Text>
-    <View style={styles.topHalf}>
+    <View>
       <Image
-        style={{width: 200, height: 200, flexBasis: '80%'}}
+        resizeMode="contain"
+        style={{width: 400, height: 300}}
         source={{uri: recipe.image}}
       />
+      <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'flex-end'}}>
+        <Text style={{backgroundColor: 'grey', color: 'white', textShadowColor: 'black', textShadowRadius: 7}}>{recipe.title}</Text>
+      </View>
     </View>
   </View>
 );
@@ -43,17 +46,11 @@ const AllRecipeFlatList = ({data, title}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: '5%',
-    borderRadius: 20,
+    marginBottom: '10%',
     alignItems: 'flex-start',
-    padding: 12
   },
   card: {
     marginBottom: 30,
-    backgroundColor: 'yellow',
-  },
-  topHalf: {
-    flexDirection: 'row',
   },
 });
 

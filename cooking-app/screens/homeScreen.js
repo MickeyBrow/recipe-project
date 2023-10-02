@@ -12,18 +12,35 @@ import RecipeModule from "../../cooking-app/components/recipeModule";
 import PictureFunctionalityAd from "../components/pictureFunctionalityAd";
 import RandomRecipeAd from "../components/randomRecipeAd";
 import IngredientSearchBar from "../components/ingredientSearchBar";
+import AllRecipeFlatList from "../components/allRecipeFL";
 
 export default function HomeScreen({navigation}) {
 
   const [homePageData, setHomePageData] = useState();
-  const [ingredientsList, setIngredientsList]= useState([]);
+  const [ingredientsList, setIngredientsList] = useState([]);
+  const [searchRecipes, setSearchRecipes] = useState();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/test')
+    fetch('http://127.0.0.1:5000/home')
       .then(response => response.json())
       .then(data => setHomePageData(data))
       .catch(error => console.log(error))
   }, []);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:5000/ingredientSearch', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ingredients: ingredientsList,
+      })})
+      .then(response => response.json())
+      .then(data => setSearchRecipes(data))
+      .catch(error => console.log(error))
+  }, [ingredientsList]);
 
   if(!homePageData) return <Text>Loading...</Text>
 
@@ -52,7 +69,7 @@ export default function HomeScreen({navigation}) {
             showsVerticalScrollIndicator={false}
           />
           :
-          null
+          <AllRecipeFlatList data={searchRecipes} title="Test"/>
         }
       </View>
     </SafeAreaView>

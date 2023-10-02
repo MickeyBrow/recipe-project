@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import requests
 from dotenv import load_dotenv
 import os
@@ -13,7 +13,7 @@ app = Flask(__name__)
 def hello():
   return {"data": 'Hello, World!'}
 
-@app.route('/test', methods = ['GET'])
+@app.route('/home', methods = ['GET'])
 def getHomePageData():
   def getHomePageDataHelper(sort):
     response = requests.get('https://api.spoonacular.com/recipes/complexSearch', {"apiKey": apiKey, "sort": sort})
@@ -38,4 +38,11 @@ def getRandomPageData():
 
   response = requests.get('https://api.spoonacular.com/recipes/complexSearch', {"apiKey": apiKey})
   data = response.json()["results"]
+  return data
+
+@app.route('/ingredientSearch', methods = ['POST'])
+def getIngredientSearchData():
+  request_body = request.json
+  response = requests.get('https://api.spoonacular.com/recipes/findByIngredients', {"apiKey": apiKey, "ingredients": request_body["ingredients"]})
+  data = response.json()
   return data

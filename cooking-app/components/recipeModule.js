@@ -19,7 +19,7 @@ const Cards = ({recipe}) => (
         source={{uri: recipe.image}}
       />
       <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'flex-end', alignItems: 'flex-end'}}>
-        <Text style={{backgroundColor: 'red'}}>{recipe.title}</Text>
+        <Text style={{backgroundColor: 'grey', color: 'white', textShadowColor: 'black', textShadowRadius: 7}}>{recipe.title}</Text>
       </View>
     </View>
   </View>
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
   },
   card: {
     marginBottom: 5,
-    backgroundColor: 'yellow',
     paddingRight: 40,
   },
 });

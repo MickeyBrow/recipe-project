@@ -55,7 +55,7 @@ const IngredientSearchBar = ({ingredientsList, removeIngredient}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: '3%'
+    marginBottom: '1%'
   },
 
   input: {
