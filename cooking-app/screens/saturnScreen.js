@@ -39,14 +39,12 @@ export default function SaturnScreen({navigation}) {
 
   if (photo) {
     // Send the photo to the backend for image segmentation
-    let data = {
-      file: `data:image/jpg;base64,${photo.base64}`
-    };
-
+    const data = new FormData();
+    data.append('image', photo);
     fetch('http://127.0.0.1:5000/imageUpload', {
-      body: JSON.stringify(data),
+      body: data,
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'multipart/form-data'
       },
       method: 'POST'
     })

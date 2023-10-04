@@ -21,10 +21,10 @@ export default function HomeScreen({navigation}) {
   const [searchRecipes, setSearchRecipes] = useState();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/home')
+    fetch('https://localhost:5000/home')
       .then(response => response.json())
       .then(data => setHomePageData(data))
-      .catch(error => console.log(error))
+      .catch(error => console.log("here", error))
   }, []);
 
   useEffect(() => {
