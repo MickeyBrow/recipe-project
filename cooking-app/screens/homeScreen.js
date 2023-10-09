@@ -29,7 +29,7 @@ export default function HomeScreen({navigation}) {
     })
       .then(response => response.json())
       .then(data => setHomePageData(data))
-      .catch(error => console.log("here", error))
+      .catch(error => console.log(error))
   }, []);
 
   useEffect(() => {
