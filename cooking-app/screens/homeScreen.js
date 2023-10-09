@@ -21,14 +21,19 @@ export default function HomeScreen({navigation}) {
   const [searchRecipes, setSearchRecipes] = useState();
 
   useEffect(() => {
-    fetch('https://localhost:5000/home')
+    fetch('http://10.0.0.11:5000/home', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
       .then(response => response.json())
       .then(data => setHomePageData(data))
       .catch(error => console.log("here", error))
   }, []);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/ingredientSearch', {
+    fetch('http://10.0.0.11:5000/ingredientSearch', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

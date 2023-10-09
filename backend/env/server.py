@@ -56,16 +56,16 @@ def getIngredientSearchData():
 @app.route('/imageUpload', methods = ['POST'])
 def getImageData():
   image = request.form.get('image')
-  image = np.array(image)
-  image = tf.image.convert_image_dtype(image, tf.float32)
-  image = tf.image.resize(image, (320, 320))  # Resize to match MobileNetV2 input size
-  image = tf.expand_dims(image, 0)  # Add batch dimension
+  # image = np.array(image)
+  # image = tf.image.convert_image_dtype(image, tf.float32)
+  # image = tf.image.resize(image, (320, 320))  # Resize to match MobileNetV2 input size
+  # image = tf.expand_dims(image, 0)  # Add batch dimension
   
-  # Perform object detection
+  # # Perform object detection
   model = hub.load("https://tfhub.dev/tensorflow/efficientdet/lite1/detection/1")
   boxes, scores, classes, num_detections = model(image)
-  print(scores, classes, num_detections)
+  print("final ", scores, classes, num_detections)
   return {}
 
 if __name__ == "__main__":
-  app.run(ssl_context='adhoc')
+  app.run()

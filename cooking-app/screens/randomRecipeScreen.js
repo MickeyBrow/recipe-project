@@ -16,7 +16,7 @@ export default function RandomRecipeScreen({navigation}) {
   const [recipes, setRecipes] = useState();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/randomPage')
+    fetch('http://10.0.0.11:5000/randomPage')
       .then(response => response.json())
       .then(data => setRecipes(data))
       .catch(error => console.log(error))

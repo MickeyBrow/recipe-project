@@ -41,7 +41,7 @@ export default function SaturnScreen({navigation}) {
     // Send the photo to the backend for image segmentation
     const data = new FormData();
     data.append('image', photo);
-    fetch('http://127.0.0.1:5000/imageUpload', {
+    fetch('http://10.0.0.11:5000/imageUpload', {
       body: data,
       headers: {
         'content-type': 'multipart/form-data'
@@ -56,6 +56,10 @@ export default function SaturnScreen({navigation}) {
     // After this line is the case that the image stuff works and I get back either the list of ingredients or the recipes
     return (
       <SafeAreaView style={{height: '100%'}}>
+        <Button
+          title="back"
+          onPress={() => setPhoto()}
+        />
         <Text>Working on it</Text>
       </SafeAreaView>
     )
